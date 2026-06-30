@@ -9,7 +9,8 @@ class Role extends Model
 {
     /** @use HasFactory<\Database\Factories\RoleFactory> */
     protected $fillable=[
-        'roleName'
+        'roleName',
+        'roleDescription'
     ];
     use HasFactory;
 }

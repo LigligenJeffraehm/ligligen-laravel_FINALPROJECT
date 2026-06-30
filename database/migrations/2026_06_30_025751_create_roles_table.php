@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('roleName', length:50);
+            $table->string('roleDescription', length:200);
             
         });
     }

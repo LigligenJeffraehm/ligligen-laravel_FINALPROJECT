@@ -13,7 +13,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::all();
+        return view('roleList',compact('roles'));
     }
 
     /**
@@ -21,7 +22,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view ('roleCreate');
     }
 
     /**
@@ -29,7 +30,8 @@ class RoleController extends Controller
      */
     public function store(StoreRoleRequest $request)
     {
-        //
+        Role::create($request->all());
+        return redirect()->route('roles.index');
     }
 
     /**
