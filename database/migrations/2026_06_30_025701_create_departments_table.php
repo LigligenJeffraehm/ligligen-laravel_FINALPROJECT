@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('employeeName', length:100);
-            $table->string('email', length:50);
-            $table->foreignId('role_id')->constrained();
-            $table->foreignId('department_id')->constrained();
-
+            $table->string('departmentName', length: 50);
+            
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('employees');
+        Schema::dropIfExists('departments');
     }
 };
