@@ -15,6 +15,9 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         return view('roleList',compact('roles'));
+
+        $roles = Role::all();
+        
     }
 
     /**
@@ -47,8 +50,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $roles = Role::all();
-        return redirect()->route('roles.index');
+        return view('roleEdit',compact('role'));
     }
 
     /**
@@ -56,7 +58,7 @@ class RoleController extends Controller
      */
     public function update(UpdateRoleRequest $request, Role $role)
     {
-        $roles ->update ($request->all());
+        $role -> update ($request->all());
         return redirect()->route('roles.index');
     }
 

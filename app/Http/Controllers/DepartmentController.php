@@ -13,7 +13,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //
+        $departments = Department::all();
+        return view('departmentList', compact('departments'));
     }
 
     /**
@@ -21,7 +22,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('departmentCreate');
     }
 
     /**
@@ -29,7 +30,8 @@ class DepartmentController extends Controller
      */
     public function store(StoreDepartmentRequest $request)
     {
-        //
+        Department::create($request->all());
+        return redirect()->route('departments.index');
     }
 
     /**
@@ -45,7 +47,7 @@ class DepartmentController extends Controller
      */
     public function edit(Department $department)
     {
-        //
+        return view('departmentEdit', compact('department'));
     }
 
     /**
@@ -53,7 +55,8 @@ class DepartmentController extends Controller
      */
     public function update(UpdateDepartmentRequest $request, Department $department)
     {
-        //
+        $department -> update($request->all());
+        return redirect()->route('departments.index');
     }
 
     /**
@@ -61,6 +64,7 @@ class DepartmentController extends Controller
      */
     public function destroy(Department $department)
     {
-        //
+        $department->delete();
+        return redirect()->route('departments.index');
     }
 }

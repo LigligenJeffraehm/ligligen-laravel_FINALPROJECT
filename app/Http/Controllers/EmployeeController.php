@@ -13,7 +13,9 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-       
+        $employees=DB::table('employees')
+        ->join('roles','role->id', '=' , 'employees.role->id')
+        ->join('departments', 'department.id', '=','employees.')
     }
 
     /**

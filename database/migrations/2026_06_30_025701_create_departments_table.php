@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('departmentName', length: 50);
+            $table->string('departmentDescription', length:100);
             
         });
     }
